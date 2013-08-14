@@ -1,2 +1,3 @@
+2013-08-14 - Added fe100.h and started coding host register layout
 2013-08-12 - Added Makefile and fe100.conf for 3c905C Adapter
 2013-08-12 - Created repository and added README

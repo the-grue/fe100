@@ -24,4 +24,39 @@
 
 #define HR_INTSTATUSAUTO		0x1E	/* 16bit */
 
+#define HR_DMACTRL			0x20	/* 32bit */
+
+#define HR_DNLISTPTR			0x24	/* 32bit */
+
+#define HR_DNBURSTTHRESH		0x2A	/* 8bit */
+
+#define HR_DNPRIORITYTHRESH		0x2C	/* 8bit */
+#define HR_DNPOLL			0x2D	/* 8bit */
+
+#define HR_UPPKTSTATUS			0x30	/* 32bit */
+
+#define HR_FREETIMER			0x34	/* 16bit */
+#define HR_COUNTDOWN			0x36	/* 16bit */
+
+#define HR_UPLISTPTR			0x38	/* 32bit */
+
+#define HR_UPPRIORITYTHRESH		0x3C	/* 8bit */
+#define HR_UPPOLL			0x3D	/* 8bit */
+#define HR_UPBURSTTHRESH		0x3E	/* 8bit */
+
+#define HR_REALTIMECNT			0x40	/* 32bit */
+
+#define HR_CONFIGADDRESS		0x44	/* 8bit */
+
+#define HR_CONFIGDATA			0x48	/* 8bit */
+
+#define HR_DEBUGDATA			0x70	/* 32bit */
+
+#define HR_DEBUGCONTROL			0x74	/* 16bit */
+
+#define HR_DNMAXBURST			0x78	/* 16bit */
+#define HR_UPMAXBURST			0x7A	/* 16bit */
+
+#define HR_POWERMGMTCTRL		0x7C	/* 16bit */
+
 #endif
