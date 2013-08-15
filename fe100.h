@@ -59,4 +59,18 @@
 
 #define HR_POWERMGMTCTRL		0x7C	/* 16bit */
 
+/*  Register Window Layout (offsets)
+ *
+ *  See page 24 of document for more information
+ */
+
+#define INTSTATUSCOMMAND		0xE	/* 16bit */
+
+#define W0_BIOSROMADDR			0x4	/* 32bit */
+#define W0_BIOSROMDATA			0x8	/* 8bit */
+#define W0_EEPROMCOMMAND		0xA	/* 16bit */
+#define W0_EEPROMDATA			0xC	/* 16bit */
+
+#define W1_SMBFIFODATA			0x0	/* 8bit */
+#define W1_SMBADDRESS			0x1	/* 8bit */
 #endif
