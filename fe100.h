@@ -73,4 +73,59 @@
 
 #define W1_SMBFIFODATA			0x0	/* 8bit */
 #define W1_SMBADDRESS			0x1	/* 8bit */
+#define W1_SMBSTATUS			0x2	/* 16bit */
+#define W1_SMBARB			0x4	/* 8bit */
+#define W1_SMBDIAG			0x5	/* 8bit */
+#define W1_SMBRXBYTES			0x6	/* 16bit */
+#define W1_WAKEONTIMER			0x8	/* 16bit */
+#define W1_SOSBITS			0xA	/* 8bit */
+#define W1_TRIGGERBITS			0xC	/* 16bits */
+
+#define W2_STATIONADDRESSLO		0x0	/* 16bits */
+#define W2_STATIONADDRESSMID		0x2	/* 16bits */
+#define W2_STATIONADDRESSHI		0x4	/* 16bits */
+#define W2_STATIONMASKLO		0x6	/* 16bits */
+#define W2_STATIONMASKMID		0x8	/* 16bits */
+#define W2_STATIONMASKHI		0xA	/* 16bits */
+#define W2_RESETOPTIONS			0xC	/* 16bits */
+
+#define W3_INTERNALCONFIG		0x0	/* 32bits */
+#define W3_MAXPKTSIZE			0x4	/* 16bits */
+#define W3_MACCONTROL			0x6	/* 16bits */
+#define W3_MEDIAOPTIONS			0x8	/* 16bits */
+#define W3_RXFREE			0xA	/* 16bits */
+#define W3_TXFREE			0xC	/* 16bits */
+
+#define W4_VCODIAGNOSTIC		0x2	/* 16bits */
+#define W4_FIFODIAGNOSTIC		0x4	/* 16bits */
+#define W4_NETWORKDIAGNOSTIC		0x6	/* 16bits */
+#define W4_PHYSICALMGMT			0x8	/* 16bits */
+#define W4_MEDIASTATUS			0xA	/* 16bits */
+#define W4_BADSSD			0xC	/* 8bits */
+#define W4_UPPERBYTESOK			0xD	/* 8bits */
+
+#define W5_TXSTARTTHRESH		0x0	/* 16bits */
+#define W5_RXEARLYTHRESH		0x6	/* 16bits */
+#define W5_RXFILTER			0x8	/* 8bits */
+#define W5_TXRECLAIMTHRESH		0x9	/* 8bits */
+#define W5_INTERRUPTENABLE		0xA	/* 16bits */
+#define W5_INDICATIONENABLE		0xC	/* 16bits */
+
+#define W6_CARRIERLOST			0x0	/* 8bits */
+#define W6_SQEERRORS			0x1	/* 8bits */
+#define W6_MULTIPLECOLLISIONS		0x2	/* 8bits */
+#define W6_SINGLECOLLISIONS		0x3	/* 8bits */
+#define W6_LATECOLLISIONS		0x4	/* 8bits */
+#define W6_RXOVERRUNS			0x5	/* 8bits */
+#define W6_FRAMESXMITTEDOK		0x6	/* 8bits */
+#define W6_FRAMESRCVDOK			0x7	/* 8bits */
+#define W6_FRAMESDEFERRED		0x8	/* 8bits */
+#define W6_UPPERFRAMESOK		0x9	/* 8bits */
+#define W6_BYTESRCVDOK			0xA	/* 16bits */
+#define W6_BYTESXMITTEDOK		0xC	/* 16bits */
+
+#define W7_VLANMASK			0x0	/* 16bits */
+#define W7_VLANETHERTYPE		0x4	/* 16bits */
+#define W7_POWERMGMTEVENT		0xC	/* 16bits */
+
 #endif
