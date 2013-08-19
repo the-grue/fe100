@@ -13,6 +13,8 @@
 #ifndef FE100
 #define FE100
 
+#define DEBUG 1
+
 /*  Host Register Variables (offsets)
  *
  *  See page 23 of document for more information
@@ -127,5 +129,9 @@
 #define W7_VLANMASK			0x0	/* 16bits */
 #define W7_VLANETHERTYPE		0x4	/* 16bits */
 #define W7_POWERMGMTEVENT		0xC	/* 16bits */
+
+/*  Function Prototypes */
+
+static void sef_local_startup(void);
 
 #endif

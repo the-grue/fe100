@@ -1,3 +1,4 @@
+2013-08-19 - Added fe100.c and started coding driver.
 2013-08-15 - Added register window layout to fe100.h
 2013-08-14 - Added fe100.h and started coding host register layout
 2013-08-12 - Added Makefile and fe100.conf for 3c905C Adapter
