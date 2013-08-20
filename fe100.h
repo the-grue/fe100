@@ -130,8 +130,173 @@
 #define W7_VLANETHERTYPE		0x4	/* 16bits */
 #define W7_POWERMGMTEVENT		0xC	/* 16bits */
 
-/*  Function Prototypes */
+/*  Command Register (commands)
+ *
+ *  See pages 134-146 of document for more information
+ */
+
+/*  RESET COMMANDS
+ */
+
+#define COM_GLOBALRESET			0x0	/* 16bits */
+#define		COM_GR_TPAUIRESET	1	/* 1bit */
+#define		COM_GR_ENDECRESET	2	/* 1bit */
+#define		COM_GR_NETWORKRESET	4	/* 1bit */
+#define		COM_GR_FIFORESET	8	/* 1bit */
+#define		COM_GR_AISMRESET	16	/* 1bit */
+#define		COM_GR_HOSTRESET	32	/* 1bit */
+#define		COM_GR_SMBRESET		64	/* 1bit */
+#define		COM_GR_VCORESET		128	/* 1bit */
+#define		COM_GR_UPDOWNRESET	256	/* 1bit */
+
+#define COM_RXRESET			0x2800	/* 16bits */
+#define		COM_RR_TPAUIRXRESET	1	/* 1bit */
+#define		COM_RR_ENDECRXRESET	2	/* 1bit */
+#define		COM_RR_NETWORKRXRESET	4	/* 1bit */
+#define		COM_RR_FIFORXRESET	8	/* 1bit */
+#define		COM_RR_UPRXRESET	128	/* 1bit */
+
+#define COM_TXRESET			0x5800	/* 16bits */
+#define		COM_TR_TPAUITXRESET	1	/* 1bit */
+#define		COM_TR_ENDECTXRESET	2	/* 1bit */
+#define		COM_TR_NETWORKTXRESET	4	/* 1bit */
+#define		COM_TR_FIFITXRESET	8	/* 1bit */
+#define		COM_TR_DNTXRESET	128	/* 1bit */
+
+/*  TRANSMIT COMMANDS
+ */
+
+#define COM_DNSTALL			0x3002	/* 16bits */
+
+#define COM_DNUNSTALL			0x3003	/* 16bits */
+
+#define COM_SETTXRECLAIMTHRESH		0xC000	/* 16bits */
+
+#define COM_SETTXSTARTTHRESH		0x9800	/* 16bits */
+#define 	COM_STST_MASK		0xFFFC	/* 16bits */
+
+#define COM_TXAGAIN			0x9000	/* 16bits */
+
+#define COM_TXDISABLE			0x5000	/* 16bits */
+
+#define COM_TXDONE			0x3800	/* 16bits */
+
+#define COM_TXENABLE			0x4800	/* 16bits */
+
+#define COM_TXFIFOBISECT		0xD800	/* 16bits */
+
+/*  RECEIVE COMMANDS
+ */
+
+#define COM_RXDISABLE			0x1800	/* 16bits */
+
+#define COM_RXDISCARD			0x5000	/* 16bits */
+
+#define COM_RXENABLE			0x2000	/* 16bits */
+
+#define COM_SETHASHFILTERBIT		0xC800	/* 16bits */
+#define 	COM_SHFB_MASK_ON	0x0400	/* 1bit */
+#define		COM_SHFB_MASK_OFF	0x0000	/* 1bit */
+
+#define COM_SETRXEARLYTHRESH		0x8800	/* 1bit */
+#define		COM_SRET_MASK		0xFFFC	/* 16bits */
+
+#define COM_SETRXFILTER			0x8000	/* 16bits */
+#define		COM_SRF_INDIVIDUAL	1	/* 1bit */
+#define		COM_SRF_MULTICAST	2	/* 1bit */
+#define		COM_SRF_BROADCAST	4	/* 1bit */
+#define		COM_SRF_PROMISCUOUS	8	/* 1bit */
+#define		COM_SRF_3C905B_MHF	16	/* 1bit */
+
+#define COM_UPSTALL			0x3000	/* 16bits */
+
+#define COM_UPUNSTALL			0x3001	/* 16bits */
+
+/*  INTERRUPT COMMANDS
+ */
+
+#define	COM_ACKNOWLEDGEINTERRUPT	0x6800	/* 16bits */
+#define		COM_AI_INTERRUPTLATCHACK	0	/* 1bit */
+#define		COM_AI_LINKEVENTACK		2	/* 1bit */
+#define		COM_AI_RXEARLYACK		32	/* 1bit */
+#define		COM_AI_INTREQUESTEDACK		64	/* 1bit */
+#define		COM_AI_DNCOMPLETEACK		512	/* 1bit */
+#define		COM_AI_UPCOMPLETEACK		1024	/* 1bit */
+
+#define COM_REQUESTINTERRUPT		0x6000	/* 16bits */
+
+#define COM_SETINDICATIONENABLE		0x7800	/* 16bits */
+
+#define COM_SETINTERRUPTENABLE		0x7000	/* 16bits */
+
+/*  OTHER COMMANDS
+ */
+
+#define COM_DISABLEDCCONVERTER		0xB800	/* 16bits */
+
+#define COM_ENABLEDCCONVERTER		0x1000	/* 16bits */
+
+#define COM_SELECTREGISTERWINDOW	0x0800	/* 16bits */
+#define 	COM_SRW_0		0	/* 3bits */
+#define 	COM_SRW_1		1	/* 3bits */
+#define 	COM_SRW_2		2	/* 3bits */
+#define 	COM_SRW_3		3	/* 3bits */
+#define 	COM_SRW_4		4	/* 3bits */
+#define 	COM_SRW_5		5	/* 3bits */
+#define 	COM_SRW_6		6	/* 3bits */
+#define 	COM_SRW_7		7	/* 3bits */
+
+#define	COM_STATISTICSDISABLE		0xB000	/* 16bits */
+
+#define COM_STATISTICSENABLE		0xA800	/* 16bits */
+
+/*  Structures 
+ */
+
+typedef struct fe100
+{
+	int	fe100_mode;
+	int	fe100_flags;
+	u16_t	fe100_vid;
+	u16_t	fe100_did;
+	u16_t	fe100_command;
+	u16_t	fe100_pcistat;
+	u8_t	fe100_revid;
+	u32_t	fe100_classcode;
+	u8_t	fe100_cachelinesize;
+	u8_t	fe100_latencytimer;
+	u8_t	fe100_headertype;
+	u32_t	fe100_iobaseaddress;
+	u32_t	fe100_membaseaddress;
+	u16_t	fe100_subsystemvid;
+	u16_t	fe100_subsystemid;
+	u32_t	fe100_biosromcontrol;
+	u8_t	fe100_capptr;
+	u8_t	fe100_interruptline;
+	u8_t	fe100_interruptpin;
+	u8_t	fe100_mingnt;
+	u8_t	fe100_maxlat;
+	u8_t	fe100_capid;
+	u8_t	fe100_nextptr;
+	u16_t	fe100_powermgmtcap;
+	u16_t	fe100_powermgmtctrl;
+	u8_t	fe100_data;
+}fe100_t;
+
+/*  Function Prototypes
+ */
 
 static void sef_local_startup(void);
+static int sef_cb_init_fresh(int type, sef_init_info_t *info);
+static void sef_cb_signal_handler(int signo);
+
+/*  Instance Variables 
+ */
+
+static int fe100_instance;
+
+static fe100_t *fe100_state;
+
+static u32_t system_hz;
 
 #endif
