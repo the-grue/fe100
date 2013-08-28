@@ -253,8 +253,34 @@
 /*  Structures 
  */
 
+/*  Upload packet descriptor
+ *	See page 104 of the documentation
+ */
+
+typedef struct upd
+{
+	u32_t	upnextptr;
+	u32_t	uppktstatus;
+	u32_t	upfragaddr;
+	u32_t	upfraglen;
+}upd_t;
+
+/*  Down packet descriptor
+ *	See page 84 of the documentation
+ */
+
+typedef struct dpd
+{
+	u32_t	dnnextptr;
+	u32_t	framestartheader;
+	u32_t	dnfragaddr;
+	u32_t	dnfraglen;
+}dpd_t;
+
 typedef struct fe100
 {
+	upd_t	fe_100_upd;
+	dpd_t	fe_100_dpd;
 	int	fe100_mode;
 	int	fe100_flags;
 	u16_t	fe100_vid;
